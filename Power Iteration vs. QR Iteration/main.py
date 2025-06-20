@@ -3,7 +3,7 @@ from avaliacao import avaliar_metodo
 from potencia import iteracao_potencia_com_deflacao
 from qr import iteracao_qr_sem_deslocamento, iteracao_qr_com_deslocamento
 
-caminho = "testes/matriz_exemplo.txt"
+caminho = "Projetos/Power Iteration vs. QR Iteration/testes/matriz_exemplo.txt"
 matriz = ler_matriz_txt(caminho)
 referencia = [10.0, 5.0, 2.0]
 

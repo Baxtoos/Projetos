@@ -25,8 +25,9 @@ def criar_produto(nome, descricao, preco, estoque, disponivel, vendedor_id):
 def listar_produtos():
     produtos = session.query(Produto).all()
     for produto in produtos:
+        preco_formatado = f"R$ {produto.preco / 100:.2f}"
         status = "Disponível" if produto.disponivel else "Indisponível"
-        print(f"ID: {produto.id} | Nome: {produto.nome} | Preço: {produto.preco} | Estoque: {produto.estoque} | Status: {status} | Vendedor ID: {produto.vendedor_id}")
+        print(f"ID: {produto.id} | Nome: {produto.nome} | Preço: {preco_formatado} | Estoque: {produto.estoque} | Status: {status} | Vendedor ID: {produto.vendedor_id}")
 
 def atualizar_produto(produto_id, novo_nome=None, novo_preco=None, novo_estoque=None, novo_disponivel=None):
     produto = session.query(Produto).filter_by(id=produto_id).first()
@@ -64,8 +65,10 @@ if __name__ == "__main__":
     # session.add(novo_vendedor)
     # session.commit()
 
-    # Exemplo: Criar produto
-    # criar_produto("Camiseta Preta", "Camiseta algodão M", 4990, 20, True, vendedor_id=1)
+    criar_produto("Camiseta Preta", "Camiseta algodão M", 4990, 20, True, vendedor_id=1)
+    criar_produto("Pó de café", "Pó de café pilão extra forte", 1500, 10, True, vendedor_id=1)
+    criar_produto("Leite", "Leite Italac", 570, 5, True, vendedor_id=1)
+    produto3 = Produto("Pão de forma", "Pão de forma plusvita", 710, 0, False, vendedor_id=1)
 
     # # Exemplo: Listar produtos
     # listar_produtos()

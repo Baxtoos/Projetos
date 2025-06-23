@@ -4,7 +4,7 @@ from grafico import plotar_grafico
 
 # Main separada para não dar erro
 def main():
-    funcao = obter_funcao()
+    funcao = obter_funcao() 
     limite1, limite2, subintervalos = obter_entradas()
 
     soma_esquerda = soma_riemann(funcao, limite1, limite2, subintervalos, 'esquerda')
@@ -16,3 +16,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    

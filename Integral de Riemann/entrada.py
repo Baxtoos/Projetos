@@ -4,6 +4,7 @@ def obter_funcao():  # Pega função do usuário
     def funcao(x):  # Cria uma função funcao(x) que avalia a expressão digitada usando eval com segurança
         try:
             return eval(entrada, {"x": x, "__builtins__": {}})  # Eval limitado: só permite uso da variável x
+            #eval = pega expressões em strings e retorna elas com o resultado em inteiro 
         except Exception as e:
             print("Erro ao avaliar a função:", e)
             return 0  # Retorna 0 em caso de erro
